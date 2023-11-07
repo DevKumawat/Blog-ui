@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgba(174, 147, 165, 255);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 100px auto;
+      }
+
+      .container {
+        background-color: white;
+        border-radius: 20px;
+        padding: 20px 0 60px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        color: rgba(174, 147, 165, 255);
+      }
+      .dropdown {
+        display: none;
+        float: right;
+      }
+
+      .right {
+        display: flex;
+        justify-content: space-between;
+        font-size: 23px;
+      }
+
+      .right ul {
+        display: flex;
+        list-style: none;
+        padding: 0 0 0 150px;
+      }
+
+      ul li {
+        padding: 10px;
+      }
+      ul li:hover {
+        color: rgb(240, 137, 154);
+      }
+      .left:hover {
+        color: rgb(240, 137, 154);
+      }
+
+      .pink-color {
+        background-color: rgba(217, 197, 210, 255);
+        height: 300px;
+        padding: 50px;
+      }
+
+      #username {
+        font-size: 80px;
+      }
+
+      .pink-color p {
+        font-size: 20px;
+        margin-top: 60px;
+        line-height: 0px;
+        font-weight: 600;
+      }
+      .info {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 30px;
+        background-color: lavenderblush;
+      }
+      .profie-pic img {
+        width: 500px;
+        position: relative;
+        bottom: 140px;
+        box-shadow: 0px 0px 15px gray;
+        transition: 1s;
+      }
+      img:hover {
+        transform: scale(1.05);
+      }
+      .icon {
+        font-size: 40px;
+        color: rgba(174, 147, 165, 255);
+        text-align: center;
+        line-height: 0;
+        cursor: pointer;
+        padding: 0 30px;
+      }
+
+      .icon:hover {
+        color: rgb(240, 137, 154);
+      }
+      .bottom {
+        line-height: 90px;
+        position: relative;
+        bottom: 90px;
+        left: 85px;
+      }
+      .bottom-icon {
+        font-size: 40px;
+        color: rgb(240, 137, 154);
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .bottom-icon::after {
+        z-index: -1;
+        content: " ";
+        width: 35px;
+        height: 35px;
+        background-color: rgba(192, 144, 176, 0.496);
+        bottom: 36px;
+        left: 23px;
+        display: flex;
+        border-radius: 100%;
+        position: relative;
+        /* background: transparent; */
+      }
+
+      @media (max-width: 1080px) {
+
+        .container {
+          width: 90%;
+        }
+
+        .icon {
+          font-size: 28px;
+        }
+
+        .right ul {
+          padding: 0 0 0 10px;
+        }
+        .profie-pic img {
+          width: 350px;
+        }
+      }
+      @media (max-width: 1024px) {
+        .profie-pic img {
+          width: 300px;
+        }
+        #username {
+          font-size: 70px;
+        }
+        .bottom {
+          left: 30px;
+        }
+      }
+      @media (max-width: 768px) {
+        body {
+          margin: 0;
+          width: auto;
+        }
+        .container {
+          width: auto;
+          border-radius: 0;
+        }
+        .icon {
+          font-size: 20px;
+        }
+      }
+      @media (max-width: 481px) {
+        .dropdown {
+          display: block;
+          padding: 20px 25px;
+        }
+        .right {
+          height: 0;
+          position: absolute;
+          top: 70px;
+          left: 35px;
+          right: 0 ;
+          width: 83vw;
+          background-color:rgba(217, 197, 210, 255);
+          transition: 0.2s;
+          color: black;
+          overflow: hidden;
+        }
+              
+        .right.active{
+          height: 250px;
+          z-index: 1;
+        
+        }
+        .right.active ul{
+          opacity: 1;
+          
+        }
+        .right ul{
+          display: block;
+          width: fit-content;
+          text-align: center;
+          transition: 0.5s;
+          opacity: 0;
+          padding: 10px 40px;
+        }
+       
+        .left{
+          padding: 0 20px;
+        }
+        .container{
+          padding: 5px 5px;
+
+        }
+        #username{
+          font-size: 30px;    
+        }
+        .username{
+          margin: 0;
+        }
+        .pink-color{
+          height: 150px;
+          padding: 5px 15px;
+        }
+        .pink-color p{
+          font-size: 11px;
+          margin-top: 25px;
+          
+        }
+        .pink-color h2{
+          font-size: 15px;
+          margin-bottom: 2px;
+        }
+        .profie-pic img{
+          width: 180px;
+          bottom: 70px;
+          left: 20px;
+        }
+        .post-info h1{
+          font-size: 20px;
+        }
+        .post-info ul{
+          padding: 0 5px;
+        }
+        .icon{
+          font-size: 18px;
+          padding: 0 5px;
+        }
+        .bottom{
+          line-height: 50px;
+        }
+        .bottom-icon{
+          font-size: 20px;
+        }
+        .bottom-text{
+          font-size: 10px;
+        }
+        .bottom-icon::after{
+          display: none;
+        }
+        
+      }
+      @media (max-width: 428px){
+        .profie-pic img{
+          bottom: 50px;
+        }
+        .bottom-text{
+          font-size: 8px;
+
+        }
+        .bottom{
+          bottom: 20px;
+        }
+        .icon{
+          padding: 0  2px;
+          font-size: 18px;
+        }
+        .info ul{
+          font-size: 12px;
+        }
+
+      }
+      @media (max-width: 400px) {
+        .container{
+          padding: 0 0 20px 0;
+        
+        }
+        
+        .icon{
+          font-size: 18px;
+          padding:  0 2px;
+        }
+        .profie-pic img{
+          width: 140px;
+          bottom: 40px;
+        }
+        .post-info ul{
+          padding: 0 0;
+          font-size: 12px;
+        }
+        .post-info h1{
+          font-size: 18px;
+        }
+        .bottom-icon{
+          font-size: 13px;
+        }
+        .bottom-text{
+          font-size: 6px;
+        }
+        .bottom{
+          left:10px;
+          bottom: 15px;
+        }
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="icon" id="back">
+        <i class="fa-regular fa-circle-left"></i>
+        <p>Prev</p>
+      </div>
+
+      <div class="card">
+        <head>
+          <nav class="navbar">
+            <div class="left">
+              <h1>Designed By Dev</h1>
+            </div>
+            <div class="right">
+              <div class="menu">
+                <ul>
+                  <li>About</li>
+                  <li>Work</li>
+                  <li>Services</li>
+                  <li>Contact</li>
+                </ul>
+              </div>
+              <div class="social">
+                <ul>
+                  <li><i class="fa-brands fa-instagram"></i></li>
+                  <li><i class="fa-brands fa-twitter"></i></li>
+                  <li><i class="fa-brands fa-linkedin"></i></li>
+                </ul>
+              </div>
+            </div>
+            <div class="dropdown" onclick="clickMenu()">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+
+          </nav>
+        </head>
+
+        <div class="pink-color">
+          <h2>Fashion Diva</h2>
+          <div class="user-info" id="user-info">
+            <h1 class="username"><span id="username"></span></h1>
+            <p>Email: <span id="email"></span></p>
+            <p>Phone: <span id="phone"></span></p>
+          </div>
+        </div>
+        <div class="info">
+          <div class="post-info" id="post-info">
+            <h1>User Post Info</h1>
+            <ul id="posts"></ul>
+          </div>
+          <div class="profie-pic">
+            <img id="profie-pic" src="" alt="" />
+            <div class="bottom">
+              <div>
+                <i class="fa-solid fa-trophy bottom-icon"></i>
+                <span class="bottom-text">TOP SELLER FASHIONISTA</span>
+              </div>
+              <div>
+                <i class="fa-solid fa-face-grin-hearts bottom-icon"></i>
+                <span class="bottom-text">FACE OF FASHION-2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="icon" id="next">
+        <i class="fa-regular fa-circle-right"></i>
+        <p>Next</p>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/f974a6b220.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+   
+     let menu = document.querySelector(".dropdown");
+
+     
+     function clickMenu(){
+      let right = document.querySelector(".right")
+      right.classList.toggle("active")
+     }
+
+  
+
+
+      let profile = [
+        { image: "/image/girlpic6.avif" },
+        { image: "/image/girlpic10.avif" },
+        { image: "/image/girlpic12.jpg" },
+        { image: "/image/girlpic13.avif" },
+        { image: "/image/girlpic1.webp" },
+        { image: "/image/girlpic7.jpg" },
+        { image: "/image/girlpic2.webp" },
+        { image: "/image/girlpic3.webp" },
+        { image: "/image/girlpic4.webp" },
+        { image: "/image/girlpic5.webp" },
+      ];
+
+      let userCount = 1;
+      let imageCount = 0;
+
+      async function fetchUserData() {
+        let data = await fetch(
+          `https://jsonplaceholder.typicode.com/users/${userCount}`
+        );
+        let result = await data.json();
+        // console.log(result);
+        return result;
+      }
+      fetchUserData();
+
+      async function fetchUserPostData() {
+        let data = await fetch(
+          `https://jsonplaceholder.typicode.com/posts/?userId=${userCount}`
+        );
+        let result = await data.json();
+        // console.log(result);
+        return result;
+      }
+      fetchUserPostData();
+
+      async function updateUserData() {
+        let name = document.getElementById("username");
+        let email = document.getElementById("email");
+        let phone = document.getElementById("phone");
+        let profilePic = document.getElementById("profie-pic");
+        profilePic.setAttribute("src", profile[`${imageCount}`].image);
+        let userData = await fetchUserData();
+        name.innerHTML = userData.name;
+        email.innerHTML = userData.email;
+        phone.innerHTML = userData.phone;
+      }
+      updateUserData();
+
+      async function updateUserPostData() {
+        let userPost = await fetchUserPostData();
+        let list = document.getElementById("posts");
+        list.innerHTML = "";
+
+        userPost.map((eachObj) => {
+          let listItem = document.createElement("li");
+          listItem.innerHTML = eachObj.title;
+
+          list.appendChild(listItem);
+        });
+      }
+      updateUserPostData();
+
+      let next = document.getElementById("next");
+      let prev = document.getElementById("back");
+
+      next.addEventListener("click", () => {
+        userCount = userCount + 1;
+        imageCount = imageCount + 1;
+        // console.log(userCount);
+        updateUserData();
+        updateUserPostData();
+      });
+
+      prev.addEventListener("click", () => {
+        userCount = userCount - 1;
+        imageCount = imageCount - 1;
+        // console.log(userCount);
+        updateUserData();
+        updateUserPostData();
+      });
+    </script>
+  </body>
+</html>
